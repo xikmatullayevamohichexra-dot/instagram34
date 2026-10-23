@@ -1,0 +1,17 @@
+# Muhit fayllari
+.env
+.venv/
+venv/
+env/
+
+# Python keshlari
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Yuklab olingan fayllar
+downloads/
+*.mp4
+*.m4a
+*.webm
+*.part
