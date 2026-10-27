@@ -1,21 +1,28 @@
-# 📸 Instagram Video Downloader & 🤖 AI Chat Telegram Bot
+# 📸 Instagram Video Downloader, 📚 Kitob Yuklash & 🤖 AI Chat Telegram Bot
 
-Ushbu bot 2 ta asosiy kuchli funksiyani birlashtirgan:
+Ushbu bot 3 ta asosiy kuchli funksiyani birlashtirgan ko'p funksiyali yordamchidir:
 1. **Instagram Video Downloader**: Foydalanuvchi yuborgan Instagram havolalaridagi (Reels, Post, Video) videolarni yuklab beradi.
-2. **AI Chat (Sun'iy intellekt suhbati)**: Foydalanuvchilarning barcha savollariga (matematika, dasturlash, tarjima, maslahat va h.k.) o'zbek tilida aqlli javob beradi.
+2. **📚 Kitob Yuklash**: Dunyo va o'zbek adabiyoti, darsliklar va ilmiy kitoblarni qidirish, PDF hamda EPUB formatlarida to'g'ridan-to'g'ri Telegram orqali yuklab olish.
+3. **🤖 AI Chat (Sun'iy intellekt suhbati)**: Foydalanuvchilarning barcha savollariga (matematika, dasturlash, tarjima, maslahat va h.k.) o'zbek tilida aqlli javob beradi.
 
 ---
 
 ## 🚀 Asosiy imkoniyatlari
 - **Instagram Reels, Post va Video** yuklash (ffmpeg talab qilmaydi, tezyurar).
+- **Elektron kitoblar qidirish va yuklash (PDF va EPUB)**:
+  - Muallif yoki kitob nomi orqali qidirish (o'zbek, rus va ingliz tillarida).
+  - Telegram orqali to'g'ridan-to'g'ri PDF yoki EPUB fayl shaklida yuklab olish.
+  - Onlayn o'qish havolasi.
 - **Aqlli AI Suhbat bo'limi**: Suhbat kontekstini (tarixini) eslab qoladi.
 - **Tugmali qulay menyu**:
   - `🤖 AI Suhbat` — Sun'iy intellekt rejimiga o'tish.
-  - `🔄 Yangi suhbat` — AI xotirasini tozalash.
+  - `📚 Kitob Yuklash` — Kitob qidirish va yuklash rejimiga o'tish.
   - `📥 Video Yuklash` — Instagram yuklash bo'limi.
+  - `🔄 Yangi suhbat` — AI xotirasini tozalash.
   - `🔙 Bosh menyu` — Asosiy menyuga qaytish.
-- Bepul AI dvigateli bilan to'g'ridan-to'g'ri ishlaydi (hech qanday API kalit talab qilmaydi).
-- Ixtiyoriy ravishda Google Gemini API kalitini ham qo'llab-quvvatlaydi.
+- **Render.com / Cloud qo'llab-quvvatlovi**:
+  - Web Service sifatida deploy qilish uchun avtomatik health-check server mavjud.
+  - Port scan xatosi bo'lmaydi.
 
 ---
 
@@ -45,11 +52,13 @@ bot papka/
 ├── .env                # Bot tokeni
 ├── config.py           # Sozlamalar
 ├── ai_service.py       # AI chat xizmati va kontekst boshqaruvi
-├── keyboards.py        # Menyular va tugmalar
-├── states.py           # FSM holatlari (AI rejim)
+├── book_service.py     # Kitob qidirish va yuklash moduli (Archive.org, OpenLibrary)
+├── keyboards.py        # Menyular va inline tugmalar
+├── states.py           # FSM holatlari (AI va Kitob qidirish)
 ├── downloader.py       # Instagram videolarni yuklovchi modul
 ├── handlers.py         # Bot komandalari va xabar ishlovchilari
-├── main.py             # Asosiy ishga tushiruvchi fayl
+├── main.py             # Asosiy ishga tushiruvchi fayl (web server + bot polling)
+├── bot.py              # Render/serverlar uchun entrypoint
 ├── requirements.txt    # Kerakli kutubxonalar
 ├── run.bat             # 1 marta bosish bilan ishga tushirish
 └── README.md           # Qo'llanma
